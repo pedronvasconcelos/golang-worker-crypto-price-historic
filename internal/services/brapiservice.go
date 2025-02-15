@@ -29,7 +29,6 @@ func NewBrapiClient(token string) *BrapiClient {
 func (bc *BrapiClient) GetBitcoinPrice() (models.CryptoPrice, error) {
 	endpoint := "/crypto"
 	url := fmt.Sprintf("%s%s?coin=BTC&currency=USD&token=%s", bc.BaseURL, endpoint, bc.APIKey)
-
 	req, err := http.NewRequestWithContext(context.Background(), "GET", url, nil)
 	if err != nil {
 		return models.CryptoPrice{}, fmt.Errorf("erro criando requisição: %v", err)
